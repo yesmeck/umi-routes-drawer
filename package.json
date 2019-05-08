@@ -1,0 +1,24 @@
+{
+  "name": "umi-routes-drawer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "tsc -w",
+    "prebuild": "rimraf lib",
+    "build": "tsc",
+    "prepack": "npm run test && npm run build"
+  },
+  "keywords": [],
+  "author": "Wei Zhu <yesmeck@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "jest": "^24.8.0",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5",
+    "umi-types": "^0.3.3"
+  }
+}
