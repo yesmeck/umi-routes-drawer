@@ -15,11 +15,19 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^24.0.12",
+    "@types/lodash": "^4.14.125",
+    "@types/normalize-path": "^3.0.0",
     "jest": "^24.8.0",
     "prettier": "^1.17.0",
     "rimraf": "^2.6.3",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.5",
     "umi-types": "^0.3.3"
+  },
+  "dependencies": {
+    "@types/pluralize": "^0.0.29",
+    "lodash": "^4.17.11",
+    "normalize-path": "^3.0.0",
+    "pluralize": "^7.0.0"
   }
 }

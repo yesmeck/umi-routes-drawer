@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`drawer resources works 1`] = `
+Array [
+  Route {
+    "name": "posts",
+    "path": "/posts",
+    "precedence": 0,
+  },
+  Route {
+    "name": "new_post",
+    "path": "/posts/new",
+    "precedence": 1,
+  },
+  Route {
+    "name": "post_edit",
+    "path": "/posts/:id/edit",
+    "precedence": 2,
+  },
+  Route {
+    "name": "post",
+    "path": "/posts/:id",
+    "precedence": 3,
+  },
+]
+`;
