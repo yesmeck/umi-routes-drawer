@@ -1,51 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`drawer resources nested 1`] = `
-Array [
-  Route {
-    "name": "comments",
-    "path": "/posts/:postId/comments",
-    "precedence": 0,
-  },
-  Route {
-    "name": "new_comment",
-    "path": "/posts/:postId/comments/new",
-    "precedence": 1,
-  },
-  Route {
-    "name": "comment_edit",
-    "path": "/posts/:postId/comments/:id/edit",
-    "precedence": 2,
-  },
-  Route {
-    "name": "comment",
-    "path": "/posts/:postId/comments/:id",
-    "precedence": 3,
-  },
-  Route {
-    "name": "posts",
-    "path": "/posts",
-    "precedence": 4,
-  },
-  Route {
-    "name": "new_post",
-    "path": "/posts/new",
-    "precedence": 5,
-  },
-  Route {
-    "name": "post_edit",
-    "path": "/posts/:id/edit",
-    "precedence": 6,
-  },
-  Route {
-    "name": "post",
-    "path": "/posts/:id",
-    "precedence": 7,
-  },
-]
-`;
-
-exports[`drawer resources nested collections 1`] = `
+exports[`drawer nested collections 1`] = `
 Array [
   Route {
     "name": "pulse_posts",
@@ -75,7 +30,7 @@ Array [
 ]
 `;
 
-exports[`drawer resources nested remember 1`] = `
+exports[`drawer nested remember 1`] = `
 Array [
   Route {
     "name": "post_draft",
@@ -105,7 +60,7 @@ Array [
 ]
 `;
 
-exports[`drawer resources nested resources 1`] = `
+exports[`drawer nested resources 1`] = `
 Array [
   Route {
     "name": "comments",
@@ -150,7 +105,27 @@ Array [
 ]
 `;
 
-exports[`drawer resources works 1`] = `
+exports[`drawer resource 1`] = `
+Array [
+  Route {
+    "name": "new_profile",
+    "path": "/profile/new",
+    "precedence": 0,
+  },
+  Route {
+    "name": "profile_edit",
+    "path": "/profile/edit",
+    "precedence": 1,
+  },
+  Route {
+    "name": "profile",
+    "path": "/profile",
+    "precedence": 2,
+  },
+]
+`;
+
+exports[`drawer resources 1`] = `
 Array [
   Route {
     "name": "posts",

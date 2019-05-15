@@ -2,8 +2,6 @@ import { castArray, without } from 'lodash';
 import { singular } from 'pluralize';
 
 export default class Resource {
-  static DEFAULT_ACTIONS = ['index', 'new', 'show', 'edit'];
-
   name: string;
   path: string;
   domain: string;
@@ -22,8 +20,12 @@ export default class Resource {
     return this.except.length > 0 ? without(this.availableActions(), ...this.except) : this.availableActions();
   }
 
+  defaultActions() {
+    return ['index', 'new', 'show', 'edit'];
+  }
+
   availableActions() {
-    return this.only.length > 0 ? this.only : Resource.DEFAULT_ACTIONS;
+    return this.only.length > 0 ? this.only : this.defaultActions();
   }
 
   plural() {

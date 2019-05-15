@@ -6,6 +6,7 @@ import normalizePath from 'normalize-path';
 import Resource from './Resource';
 import RouteSet from './RouteSet';
 import Mapping from './Mapping';
+import SingleResource from './SingleResource';
 
 type Action = 'index' | 'new' | 'show' | 'edit';
 
@@ -53,6 +54,42 @@ export default class Mapper {
               .includes('index')
           ) {
             this.page('index', {});
+          }
+        });
+
+        if (
+          this.parentResource()
+            .actions()
+            .includes('new')
+        ) {
+          this.new(() => {
+            this.page('new', {});
+          });
+        }
+
+        this.setMemberMappingsForResource();
+      });
+    });
+  }
+
+  resource(...args: any) {
+    const resources = args.slice();
+    const [options, block] = extractOptionsAndBlock<ResourcesOptions>(resources);
+    if (this.applyCommonBehaviorFor('resource', resources, options, block)) {
+      return;
+    }
+
+    this.withScopeLevel('resource', () => {
+      this.resourceScope(new SingleResource(resources.pop(), options), () => {
+        block();
+
+        this.collection(() => {
+          if (
+            this.parentResource()
+              .actions()
+              .includes('create')
+          ) {
+            this.page('create', {});
           }
         });
 
@@ -246,6 +283,7 @@ export default class Mapper {
     block({
       scope: this.scope.bind(this),
       page: this.page.bind(this),
+      resource: this.resource.bind(this),
       resources: this.resources.bind(this),
       member: this.member.bind(this),
       collection: this.collection.bind(this)
