@@ -43,7 +43,7 @@ export default class Mapper {
     }
 
     this.withScopeLevel('resources', () => {
-      this.resourceScope(new Resource(resources[0], options), () => {
+      this.resourceScope(new Resource(resources.pop(), options), () => {
         block();
 
         this.collection(() => {
@@ -102,7 +102,7 @@ export default class Mapper {
         value = options.option || null;
       }
       if (value !== null) {
-        scope[option] = (this as any)[`merge${capitalize(option)}Scope`]((this.currentScope as any)[option], value);
+        // scope[option] = (this as any)[`merge${capitalize(option)}Scope`]((this.currentScope as any)[option], value);
       }
     });
     this.currentScope = this.currentScope.new(scope);
@@ -293,8 +293,6 @@ export default class Mapper {
       ) {
         this.page('show');
       }
-
-
     });
   }
 
@@ -309,6 +307,12 @@ export default class Mapper {
   private applyCommonBehaviorFor(method: string, resources: string[], options: any, block: Block) {
     if (resources.length > 1) {
       resources.forEach(r => (this as any)[method](r, options, block));
+      return true;
+    }
+    if (this.currentScope.isResourceScope()) {
+      this.nested(() => {
+        (this as any)[method](resources.pop(), options, block);
+      });
       return true;
     }
   }

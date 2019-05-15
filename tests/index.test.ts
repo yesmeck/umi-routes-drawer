@@ -8,5 +8,14 @@ describe('drawer', () => {
       });
       expect(routes).toMatchSnapshot();
     });
+
+    it('nested', () => {
+      const routes = draw(({ resources }) => {
+        resources('posts', () => {
+          resources('comments');
+        });
+      });
+      expect(routes).toMatchSnapshot();
+    });
   });
 });
